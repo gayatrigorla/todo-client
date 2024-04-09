@@ -12,6 +12,11 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { ListItemComponent } from './nav-menu/lists/list-item/list-item.component';
+import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,8 @@ import {MatButtonModule} from '@angular/material/button';
     NavMenuComponent,
     SearchBarComponent,
     ListsComponent,
-    CreateComponent
+    CreateComponent,
+    ListItemComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +33,15 @@ import {MatButtonModule} from '@angular/material/button';
     FormsModule,
     MatIconModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule
+  ],
+  exports:[
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [
     provideAnimationsAsync()

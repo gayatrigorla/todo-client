@@ -1,1 +1,11 @@
-<p>search-bar works!</p>
+<div class="search-bar">
+<form class="search-form">
+<mat-form-field class="search-full-width">
+<span matPrefix> </span>
+<input class="search-input "type="tel" matInput placeholder="Search" name= "search" [(ngModel)]= "search" >
+<button matSuffix mat-button><mat-icon>search</mat-icon></button>
+</mat-form-field>
+<br/>
+{{search}}
+</form>
+</div>
