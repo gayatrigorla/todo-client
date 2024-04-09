@@ -18,6 +18,9 @@ import { ListItemComponent } from './nav-menu/lists/list-item/list-item.componen
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
+import { HeaderComponent } from './header/header.component';
+import { MatCardModule } from '@angular/material/card';
+import { NoRecordComponent } from './no-record/no-record.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import {MatMenuModule} from '@angular/material/menu';
     SearchBarComponent,
     ListsComponent,
     CreateComponent,
-    ListItemComponent
+    ListItemComponent,
+    HeaderComponent,
+    NoRecordComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatFormFieldModule,
     MatSidenavModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule
   ],
   providers: [
     provideAnimationsAsync()

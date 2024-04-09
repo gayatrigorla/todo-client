@@ -1,6 +1,7 @@
-<mat-drawer-container autosize class="container">
+<mat-drawer-container autosize class="container dark-primary">
   <mat-drawer [opened]="true" class="drawer dark-primary" #drawer mode="side">
     <app-nav-menu></app-nav-menu>
   </mat-drawer>
-  <app-create></app-create>
+  <app-header [title]="title"></app-header>
+  <app-no-record></app-no-record>
 </mat-drawer-container>
