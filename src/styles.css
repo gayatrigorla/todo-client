@@ -2,3 +2,39 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.dark-primary {
+  background-color: #212121 !important;
+}
+
+.medium-primary {
+  background-color: #616161 !important;
+}
+
+.light-primary {
+  background-color: #BDBDBD !important;
+}
+
+.dark-accent {
+  background-color: #1A237E !important;
+}
+
+.medium-accent {
+  background-color: #3949AB !important;
+}
+
+.light-accent {
+  background-color: #7986CB !important;
+}
+
+.dark-warn {
+  background-color: #B71C1C !important;
+}
+
+.medium-warn {
+  background-color: #E53935 !important;
+}
+
+.light-warn {
+  background-color: #E57373 !important;
+}
