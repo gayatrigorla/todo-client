@@ -39,10 +39,6 @@ import {MatMenuModule} from '@angular/material/menu';
     MatListModule,
     MatMenuModule
   ],
-  exports:[
-    MatFormFieldModule,
-    MatIconModule
-  ],
   providers: [
     provideAnimationsAsync()
   ],

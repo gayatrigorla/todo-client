@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrl: './search-bar.component.css'
 })
 export class SearchBarComponent {
-  search : String ="";
+  search : string ="";
+  
+  searchList(search:string) {
+    console.log(search);
+  };
+
+  clearSearch() {
+    this.search = '';
+  }
 }

@@ -1,0 +1,16 @@
+<div class="list-item">
+    <div class="menu-item" (click)="openList(item)">{{item}}</div>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="renameList(item)">
+            <mat-icon>edit</mat-icon>
+            <span>Rename</span>
+        </button>
+        <button mat-menu-item (click)="deleteList(item)">
+            <mat-icon>delete</mat-icon>
+            <span>Delete</span>
+        </button>
+    </mat-menu>
+</div>
