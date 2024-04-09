@@ -1,1 +1,7 @@
-<p>create works!</p>
+<form (submit)="createList()">
+  <mat-form-field color="accent" appearance="outline" class="create">
+    <mat-label>Create new list</mat-label>
+    <input class="dark-primary" matInput placeholder="Enter new list name" [(ngModel)]="listName" name="name">
+    <mat-icon matSuffix color="accent" (click)="createList()">add_circle</mat-icon>
+  </mat-form-field>
+</form>
