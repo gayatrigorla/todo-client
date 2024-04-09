@@ -5,6 +5,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .dark-primary {
   background-color: #212121 !important;
+  color: #3949AB !important
 }
 
 .medium-primary {
@@ -37,4 +38,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .light-warn {
   background-color: #E57373 !important;
+}
+
+
+.mdc-text-field--outlined:not(.mdc-text-field--focused) .mdc-notched-outline__leading, .mdc-text-field--outlined:not(.mdc-text-field--focused) .mdc-notched-outline__notch, .mdc-text-field--outlined:not(.mdc-text-field--focused) .mdc-notched-outline__trailing {
+  border-color: #3949AB !important;
+}
+
+mat-label, ::placeholder{
+  color: #3949AB !important;
 }
