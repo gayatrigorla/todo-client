@@ -1,10 +1,10 @@
 <div class="search-bar">
-<form class="search-form">
-<mat-form-field class="search-full-width">
-<input class="search-input "type="tel" matInput placeholder="Search" name= "search" [(ngModel)]= "search" >
-<mat-icon matSuffix (click)="searchList(search)">search</mat-icon>
-<mat-icon matSuffix (click)="clearSearch()" *ngIf="search">close</mat-icon>
-</mat-form-field>
-<br/>
-</form>
+  <form class="search-form">
+    <mat-form-field color="accent" class="search-full-width" appearance="outline" >
+      <input class="dark-primary" type="tel" matInput placeholder="Search" name="search" [(ngModel)]="search">
+      <mat-icon color="accent" matSuffix (click)="searchList(search)">search</mat-icon>
+      <mat-icon color="accent" matSuffix (click)="clearSearch()" *ngIf="search">close</mat-icon>
+    </mat-form-field>
+    <br />
+  </form>
 </div>

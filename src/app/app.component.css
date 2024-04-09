@@ -1,0 +1,14 @@
+.drawer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  width: max(20rem, 25%);
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.container {
+  height: 100%;
+}
