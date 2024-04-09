@@ -1,7 +1,6 @@
 <mat-drawer-container autosize class="container">
-  <mat-drawer class="drawer dark-primary" #drawer mode="side">
+  <mat-drawer [opened]="true" class="drawer dark-primary" #drawer mode="side">
     <app-nav-menu></app-nav-menu>
   </mat-drawer>
   <app-create></app-create>
-  <button (click)="drawer.toggle()">kholo</button>
 </mat-drawer-container>
