@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-create',
@@ -6,6 +6,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
   styleUrl: './create.component.scss'
 })
 export class CreateComponent {
+  @Input() label: string ='list';
   listName = '';
 
   createList() {
