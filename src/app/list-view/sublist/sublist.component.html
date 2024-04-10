@@ -1,1 +1,7 @@
-<p>sublist works!</p>
+<div class="container">
+  <div *ngFor="let i of list; let ind=index">
+    <mat-list-item><app-list-item [item]="i"></app-list-item></mat-list-item>
+
+    <mat-divider *ngIf="ind < list.length - 1"></mat-divider>
+  </div>
+</div>

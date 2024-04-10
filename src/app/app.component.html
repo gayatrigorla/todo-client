@@ -2,6 +2,9 @@
   <mat-drawer [opened]="true" class="drawer dark-primary" #drawer mode="side">
     <app-nav-menu></app-nav-menu>
   </mat-drawer>
-  <app-header [title]="title"></app-header>
-  <app-no-record></app-no-record>
-</mat-drawer-container>
+  <div class="main-container">
+    <app-header [title]="title"></app-header>
+    <!-- <app-no-record class="grow"></app-no-record> -->
+    <app-list-view class="grow"></app-list-view>
+  </div>
+  </mat-drawer-container>

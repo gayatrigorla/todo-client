@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './sublist.component.css'
 })
 export class SublistComponent {
-
+  list = ['task 1', 'task 2', 'task3'];
 }
