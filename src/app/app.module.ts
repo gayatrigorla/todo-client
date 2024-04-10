@@ -21,6 +21,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import { HeaderComponent } from './header/header.component';
 import { MatCardModule } from '@angular/material/card';
 import { NoRecordComponent } from './no-record/no-record.component';
+import { ListViewComponent } from './list-view/list-view.component';
+import { SublistComponent } from './list-view/sublist/sublist.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { NoRecordComponent } from './no-record/no-record.component';
     CreateComponent,
     ListItemComponent,
     HeaderComponent,
-    NoRecordComponent
+    NoRecordComponent,
+    ListViewComponent,
+    SublistComponent
   ],
   imports: [
     BrowserModule,
