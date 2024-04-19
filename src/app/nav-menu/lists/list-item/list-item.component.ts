@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ListItemComponent {
   @Input() item: string ='';
+  @Input() isMainList: boolean = true;
 
   renameList(item: string) {
     console.log("renaming the list", item)
