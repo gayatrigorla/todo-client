@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Mainlist } from './model/mainlist';
+import { Mainlist } from '../model/mainlist';
+import { Sublist } from '../model/sublist';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,26 @@ export class ApiService {
     {
       id: 1,
       name: 'List 1',
-      items: []
+      items: [
+        {
+          id: 1,
+          name: 'Sublist 1',
+          isCompleted: false,
+          rank: 1
+        },
+        {
+          id: 2,
+          name: 'Sublist 2',
+          isCompleted: false,
+          rank: 1
+        },
+        {
+          id: 3,
+          name: 'Sublist 3',
+          isCompleted: false,
+          rank: 1
+        }
+      ]
     },
     {
       id: 2,
@@ -45,16 +65,29 @@ export class ApiService {
 
   }
 
+  getSubListFromId(id: number): Sublist[] {
+    return this.lists[this.getIndexOfMainList(id)].items;
+  }
+
+  private getIndexOfMainList(id: number) {
+    for(let i=0; i<this.lists.length; i++) {
+      if(this.lists[i].id == id) {
+        return i;
+      }
+    }
+
+    return -1;
+  }
+
   deleteList(name: string) {
     this.lists = this.lists.filter(item => item.name!==name);
     console.log(this.lists);
   }
 
-  RenameList(oldName: string, newName: string) {
+  renameList(oldName: string, newName: string) {
     const itemToUpdate = this.lists.find(item =>item.name==oldName);
     if(itemToUpdate){
       itemToUpdate.name=newName;
     }
   }
-
 }
