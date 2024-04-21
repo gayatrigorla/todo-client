@@ -44,4 +44,17 @@ export class ApiService {
     this.nextMainSeq++;
 
   }
+
+  deleteList(name: string) {
+    this.lists = this.lists.filter(item => item.name!==name);
+    console.log(this.lists);
+  }
+
+  RenameList(oldName: string, newName: string) {
+    const itemToUpdate = this.lists.find(item =>item.name==oldName);
+    if(itemToUpdate){
+      itemToUpdate.name=newName;
+    }
+  }
+
 }
