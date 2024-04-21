@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Sublist } from '../../sublist';
 
 @Component({
   selector: 'app-sublist',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './sublist.component.css'
 })
 export class SublistComponent {
-  list = ['task 1', 'task 2', 'task3'];
+  list: Sublist[] = [];
 }

@@ -9,8 +9,8 @@ export class CreateComponent {
   @Input() label: string ='list';
   listName = '';
 
-  createList() {
-    console.error(this.listName);
+  create() {
+    console.error(this.listName +  'same');
     this.listName = '';
   }
 }

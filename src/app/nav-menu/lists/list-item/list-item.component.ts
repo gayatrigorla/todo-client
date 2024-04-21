@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { List } from '../../../list';
 
 @Component({
   selector: 'app-list-item',
@@ -6,18 +7,18 @@ import { Component, Input } from '@angular/core';
   styleUrl: './list-item.component.css'
 })
 export class ListItemComponent {
-  @Input() item: string ='';
+  @Input() item!: List;
   @Input() isMainList: boolean = true;
 
-  renameList(item: string) {
+  renameList(item: List) {
     console.log("renaming the list", item)
   }
 
-  deleteList(item:string) {
+  deleteList(item:List) {
     console.log("deleting the list",item);
   }
 
-  openList(item: string) {
+  openList(item: List) {
     console.log("Opening the list", item);
   }
 }

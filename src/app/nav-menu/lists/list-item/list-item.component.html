@@ -1,5 +1,5 @@
 <div class="list-item">
-    <div class="menu-item dark-primary" (click)="openList(item)">{{item}}</div>
+    <div class="menu-item dark-primary" (click)="openList(item)">{{item.name}}</div>
 
     <div *ngIf="isMainList; else subList">
 
