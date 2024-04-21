@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Mainlist } from './mainlist';
+import { Mainlist } from './model/mainlist';
 
 @Injectable({
   providedIn: 'root'

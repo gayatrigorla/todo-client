@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Sublist } from '../../sublist';
+import { Sublist } from '../../model/sublist';
 
 @Component({
   selector: 'app-sublist',

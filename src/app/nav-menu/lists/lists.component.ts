@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../api.service';
-import { Mainlist } from '../../mainlist';
+import { Mainlist } from '../../model/mainlist';
 
 @Component({
   selector: 'app-lists',
