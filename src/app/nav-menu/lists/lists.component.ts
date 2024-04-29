@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiService } from '../../api.service';
+import { ApiService } from '../../service/api.service';
 import { Mainlist } from '../../model/mainlist';
 
 @Component({
@@ -14,7 +14,12 @@ export class ListsComponent {
   constructor(apiService: ApiService) {
     this.apiService = apiService;
   }
+
   ngOnInit() {
+    this.fetchItems();
+  }
+
+  fetchItems() {
     this.items = this.apiService.getListNames();
   }
 }

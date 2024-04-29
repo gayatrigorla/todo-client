@@ -7,9 +7,9 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ListService {
 
-  selectedList: BehaviorSubject<Mainlist|null>;
+  selectedList: BehaviorSubject<number>;
   constructor() {
-    this.selectedList = new BehaviorSubject<Mainlist|null>(null);
+    this.selectedList = new BehaviorSubject<number>(0);
   }
 
   getList() {
@@ -17,6 +17,6 @@ export class ListService {
   }
 
   setList(list: Mainlist) {
-    this.selectedList.next(list);
+    this.selectedList.next(list.id);
   }
 }

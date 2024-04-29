@@ -1,6 +1,6 @@
 import { Component, Input} from '@angular/core';
 
-import { ApiService } from '../../api.service';
+import { ApiService } from '../../service/api.service';
 
 @Component({
   selector: 'app-create',
@@ -17,7 +17,7 @@ export class CreateComponent {
 
   create() {
     console.error(this.listName +  'same');
-   this.apiService.createMainList(this.listName);
-   this.listName='';
+    this.apiService.createMainList(this.listName);
+    this.listName='';
   }
 }

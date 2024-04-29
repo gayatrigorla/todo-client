@@ -65,8 +65,12 @@ export class ApiService {
 
   }
 
+  getMainListFromId(id: number): Mainlist {
+    return this.lists[this.getIndexOfMainList(id)];
+  }
+
   getSubListFromId(id: number): Sublist[] {
-    return this.lists[this.getIndexOfMainList(id)].items;
+    return this.getMainListFromId(id).items;
   }
 
   private getIndexOfMainList(id: number) {
@@ -79,8 +83,9 @@ export class ApiService {
     return -1;
   }
 
-  deleteList(name: string) {
-    this.lists = this.lists.filter(item => item.name!==name);
+  deleteList(id: number) {
+    let ind = this.getIndexOfMainList(id);
+    this.lists.splice(ind, 1);
     console.log(this.lists);
   }
 

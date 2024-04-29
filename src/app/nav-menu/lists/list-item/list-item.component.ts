@@ -1,40 +1,41 @@
+import { Mainlist } from './../../../model/mainlist';
+import { ListService } from './../../../service/list.service';
 import { Component, Input } from '@angular/core';
 import { List } from '../../../model/list';
-import { ApiService } from '../../../api.service';
-import { ListsComponent } from '../lists.component';
+import { isMainList } from '../../../utils/list.utils';
+import { ApiService } from '../../../service/api.service';
+
 @Component({
   selector: 'app-list-item',
   templateUrl: './list-item.component.html',
   styleUrl: './list-item.component.css'
 })
 export class ListItemComponent {
-  
   @Input() item!: List;
   @Input() isMainList: boolean = true;
-  apiService:ApiService;
-  listsComponent : ListsComponent;
+  @Input() refreshList!: () => void;
+  apiService: ApiService;
 
+  listService: ListService;
 
-  constructor(apiService:ApiService, listsComponent:ListsComponent) {
+  constructor(apiService:ApiService, listService: ListService) {
     this.apiService = apiService;
-    this.listsComponent = listsComponent;
+    this.listService = listService;
   }
-
 
   renameList(item: List) {
     console.log("renaming the list", item)
   }
 
-
   deleteList(item:List) {
     console.log("deleting the list",item);
-    this.apiService.deleteList(item.name);
-    this.listsComponent.ngOnInit();
+    this.apiService.deleteList(item.id);
+    this.refreshList();
   }
-
 
   openList(item: List) {
-    console.log("Opening the list", item);
+    if(isMainList(item)) {
+      this.listService.setList(item as Mainlist);
+    }
   }
-
 }

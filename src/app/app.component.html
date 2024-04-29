@@ -4,7 +4,9 @@
   </mat-drawer>
   <div class="main-container">
     <app-header [title]="title"></app-header>
-    <!-- <app-no-record class="grow"></app-no-record> -->
-    <app-list-view class="grow"></app-list-view>
+    <app-no-record *ngIf="isNoListSelected(); else sublist" class="grow"></app-no-record>
+    <ng-template #sublist>
+      <app-list-view class="grow"></app-list-view>
+    </ng-template>
   </div>
   </mat-drawer-container>
