@@ -4,3 +4,7 @@
   font-weight: bolder;
   font-size: larger;
 }
+
+.inverted-input mat-form-field {
+  width: 100%;
+}

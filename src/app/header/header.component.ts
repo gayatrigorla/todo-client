@@ -8,4 +8,7 @@ import { Component, Input } from '@angular/core';
 export class HeaderComponent {
   @Input() title: string = '';
 
+  renameList(obj: any) {
+    console.log(obj);
+  }
 }

@@ -1,4 +1,10 @@
 <mat-card class="dark-primary card">
   <mat-card-content>{{title}}</mat-card-content>
-  <form></form>
+  <form (submit)="renameList(listInput)">
+    <div class="inverted-input">
+      <mat-form-field color="accent">
+        <input matInput #listInput name="listName" type="text" [(ngModel)]="title">
+      </mat-form-field>
+    </div>
+  </form>
 </mat-card>

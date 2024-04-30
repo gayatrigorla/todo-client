@@ -45,6 +45,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border-color: #3949AB !important;
 }
 
+.inverted-input .mat-mdc-text-field-wrapper, .inverted-input .mdc-text-field, .inverted-input .mdc-text-field--filled, .inverted-input .mdc-text-field--no-label {
+  background-color: #3949AB !important;
+}
+
+
 mat-label, ::placeholder{
   color: #3949AB !important;
 }
