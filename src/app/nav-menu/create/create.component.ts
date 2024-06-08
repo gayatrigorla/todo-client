@@ -25,13 +25,8 @@ export class CreateComponent {
     }
     else {
       console.error(this.listName + 'same');
-      this.listService.getList().subscribe(i => {
-        if (this.listName != "") {
-          this.apiService.createSubList(i, this.listName);
-          this.listName = '';
-        }
-      });
-
+      this.apiService.createSubList(this.listService.selectedList.value, this.listName);
+      this.listName = '';
     }
   }
 }
