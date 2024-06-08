@@ -2,7 +2,6 @@ import { Mainlist } from './../../../model/mainlist';
 import { ListService } from './../../../service/list.service';
 import { Component, Input } from '@angular/core';
 import { List } from '../../../model/list';
-import { isMainList } from '../../../utils/list.utils';
 import { ApiService } from '../../../service/api.service';
 
 @Component({
@@ -24,7 +23,9 @@ export class ListItemComponent {
   }
 
   renameList(item: List) {
-    console.log("renaming the list", item)
+    console.log("renaming the list", item);
+    this.listService.setRenameMode(true);
+    this.listService.setList(item as Mainlist);
   }
 
   deleteList(item:List) {
@@ -34,7 +35,8 @@ export class ListItemComponent {
   }
 
   openList(item: List) {
-    if(isMainList(item)) {
+    if(this.isMainList) {
+      this.listService.setRenameMode(false);
       this.listService.setList(item as Mainlist);
     }
   }

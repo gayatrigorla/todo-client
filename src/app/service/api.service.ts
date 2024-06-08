@@ -108,8 +108,8 @@ export class ApiService {
     console.log(this.lists);
   }
 
-  renameList(oldName: string, newName: string) {
-    const itemToUpdate = this.lists.find(item => item.name == oldName);
+  renameList(id: number, newName: string) {
+    const itemToUpdate = this.lists.find(item => item.id == id);
     if (itemToUpdate) {
       itemToUpdate.name = newName;
     }

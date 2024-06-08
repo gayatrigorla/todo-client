@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { ListService } from '../service/list.service';
+import { ApiService } from '../service/api.service';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +9,25 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
   @Input() title: string = '';
+  listService: ListService;
+  apiService: ApiService;
+  renameMode: boolean = false;
 
-  renameList(obj: any) {
-    console.log(obj);
+  constructor(listService: ListService, apiService: ApiService) {
+    this.listService = listService;
+    this.apiService = apiService;
+  }
+
+  ngOnInit() {
+    this.listService.isRenameMode().subscribe(i => this.renameMode = i);
+  }
+
+  renameList(newName: string) {
+    if(newName.length == 0) {
+      alert(`Invalid name: '${newName}'`);
+      return;
+    }
+    this.apiService.renameList(this.listService.selectedList.value, newName);
+    this.listService.renameSelectedList(newName);
   }
 }

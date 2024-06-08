@@ -1,10 +1,12 @@
-<mat-card class="dark-primary card">
+<mat-card *ngIf="!renameMode else renameForm" class="dark-primary card">
   <mat-card-content>{{title}}</mat-card-content>
-  <form (submit)="renameList(listInput)">
-    <div class="inverted-input">
-      <mat-form-field color="accent">
-        <input matInput #listInput name="listName" type="text" [(ngModel)]="title">
-      </mat-form-field>
-    </div>
-  </form>
 </mat-card>
+  <ng-template #renameForm>
+    <form (submit)="renameList(listInput.value)">
+      <div class="inverted-input">
+        <mat-form-field color="accent">
+          <input matInput #listInput name="listName" type="text" [autofocus]="renameMode" [(ngModel)]="title">
+        </mat-form-field>
+      </div>
+    </form>
+  </ng-template>
