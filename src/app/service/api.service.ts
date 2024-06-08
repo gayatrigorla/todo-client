@@ -45,6 +45,7 @@ export class ApiService {
   ];
 
   private nextMainSeq = 4;
+  private nextSubSeq = 4;
 
   constructor() { }
 
@@ -65,6 +66,24 @@ export class ApiService {
 
   }
 
+  createSubList(id: number,name: string) {
+    const mainList = this.lists.find(list => list.id === id);
+
+    if (mainList) {
+      const newSublist: Sublist = {
+        id: this.nextSubSeq,
+        name: name,
+        isCompleted: false,
+        rank: 1
+      };
+
+      mainList.items.push(newSublist);
+      this.nextSubSeq++;
+    } else {
+      console.error(`Main list with ID ${id} not found.`);
+    }
+  }
+
   getMainListFromId(id: number): Mainlist {
     return this.lists[this.getIndexOfMainList(id)];
   }
@@ -74,8 +93,8 @@ export class ApiService {
   }
 
   private getIndexOfMainList(id: number) {
-    for(let i=0; i<this.lists.length; i++) {
-      if(this.lists[i].id == id) {
+    for (let i = 0; i < this.lists.length; i++) {
+      if (this.lists[i].id == id) {
         return i;
       }
     }
@@ -90,9 +109,9 @@ export class ApiService {
   }
 
   renameList(oldName: string, newName: string) {
-    const itemToUpdate = this.lists.find(item =>item.name==oldName);
-    if(itemToUpdate){
-      itemToUpdate.name=newName;
+    const itemToUpdate = this.lists.find(item => item.name == oldName);
+    if (itemToUpdate) {
+      itemToUpdate.name = newName;
     }
   }
 }
