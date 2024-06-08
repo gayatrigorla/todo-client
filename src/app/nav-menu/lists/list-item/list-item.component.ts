@@ -32,6 +32,7 @@ export class ListItemComponent {
     console.log("deleting the list",item);
     this.apiService.deleteList(item.id);
     this.refreshList();
+    this.listService.setList(null);
   }
 
   openList(item: List) {
