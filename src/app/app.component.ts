@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { appName } from './app.constants';
+import { APP_NAME } from './app.constants';
 import { Mainlist } from './model/mainlist';
 import { ListService } from './service/list.service';
 import { ApiService } from './service/api.service';
@@ -10,7 +10,7 @@ import { ApiService } from './service/api.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = appName;
+  title = APP_NAME;
   listService: ListService;
   apiService: ApiService;
 
@@ -24,12 +24,12 @@ export class AppComponent {
       if(i != 0) {
         this.title = this.apiService.getMainListFromId(i).name;
       } else {
-        this.title = appName;
+        this.title = APP_NAME;
       }
     });
   }
 
   isNoListSelected() {
-    return this.title === appName;
+    return this.title === APP_NAME;
   }
 }
