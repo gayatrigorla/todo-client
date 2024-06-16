@@ -1,6 +1,8 @@
 <mat-list class="container">
   <ng-container *ngFor="let i of list; let ind=index">
-    <mat-list-item><app-list-item [isMainList]="false" [item]="i" [refreshList]="fetchItems"></app-list-item></mat-list-item>
+    <mat-list-item draggable="true" (dragstart)="onDragStart(i)" (dragover)="onDragOver($event, ind)" (drop)="onDrop($event, i.rank)" dropzone="true">
+      <app-list-item [isMainList]="false" [item]="i" [refreshList]="fetchItems"></app-list-item>
+    </mat-list-item>
 
     <mat-divider *ngIf="ind < list.length - 1"></mat-divider>
   </ng-container>

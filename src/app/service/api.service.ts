@@ -22,13 +22,13 @@ export class ApiService {
           id: 2,
           name: 'Sublist 2',
           isCompleted: false,
-          rank: 1
+          rank: 2
         },
         {
           id: 3,
           name: 'Sublist 3',
           isCompleted: false,
-          rank: 1
+          rank: 3
         }
       ]
     },
@@ -89,7 +89,7 @@ export class ApiService {
   }
 
   getSubListFromId(id: number): Sublist[] {
-    return this.getMainListFromId(id).items;
+    return this.getMainListFromId(id).items.sort((a,b) => a.rank-b.rank);
   }
 
   private getIndexOfMainList(id: number) {
@@ -114,4 +114,64 @@ export class ApiService {
       itemToUpdate.name = newName;
     }
   }
+
+  changeRank(id: number, selectedItem: Sublist | undefined, rank: number) {
+
+
+    // dummy logic
+    let listIndex = -1;
+    for(let i=0; i<this.lists.length; i++) {
+      if(this.lists[i].id == id) {
+        listIndex = i;
+        break;
+      }
+    }
+
+    if(listIndex == -1) {
+      console.error("list not found");
+      return;
+    }
+
+    let oldRank = selectedItem!.rank;
+    if(rank == oldRank) {
+        return;
+    }
+
+    if(rank < oldRank) {
+        this.downgradeRank(this.lists[listIndex].items, oldRank, rank);
+    } else {
+        this.upgradeRank(this.lists[listIndex].items, oldRank, rank);
+    }
+  }
+
+  upgradeRank(items: Sublist[], oldRank: number, rank: number) {
+    let ii;
+
+    for(let i of items) {
+      if(i.rank == oldRank) {
+        ii=i;
+      } else if(oldRank < i.rank && i.rank <= rank) {
+        i.rank--;
+      }
+    }
+
+    ii!.rank = rank;
+  }
+
+  downgradeRank(items: Sublist[], oldRank: number, rank: number) {
+
+    let ii;
+
+    for(let i of items) {
+      if(i.rank == oldRank) {
+        ii = i;
+      } else if(i.rank >= rank && i.rank < oldRank) {
+        i.rank++;
+      }
+    }
+
+    ii!.rank = rank;
+  }
 }
+
+

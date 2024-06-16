@@ -14,6 +14,9 @@ export class SublistComponent {
   listService: ListService;
   apiService: ApiService;
 
+  //for dragging
+  selectedItem: Sublist | undefined;
+
   constructor(listService: ListService, apiService: ApiService) {
     this.listService = listService;
     this.apiService = apiService;
@@ -32,4 +35,25 @@ export class SublistComponent {
       this.list = this.apiService.getSubListFromId(this.id);
     }
   }
+
+  onDragStart(i: Sublist) {
+    this.selectedItem = i;
+  }
+
+  onDragOver(event: Event, i: number) {
+    event.preventDefault();
+    console.log(`drag over ${i}`);
+  }
+
+  onDrop(event: Event, rank: number) {
+    event.preventDefault();
+    console.log('dropped');
+    if(rank == this.selectedItem!.rank) {
+      return;
+    }
+    console.log(this.id, this.selectedItem, rank);
+    this.apiService.changeRank(this.id, this.selectedItem, rank);
+    this.fetchItems();
+  }
 }
+
